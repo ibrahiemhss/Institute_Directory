@@ -75,6 +75,7 @@
                 android:layout_marginBottom="@dimen/nav_item_side_margin"
                 android:layout_alignParentEnd="true"
                 android:text="@string/chain_dir" />
+
             <View
                 android:id="@+id/v2"
                 android:layout_width="match_parent"

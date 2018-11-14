@@ -34,7 +34,7 @@ public class SplashActivity extends AwesomeSplash {
 
 
         //Customize Path
-       // configSplash.setPathSplash(4); //set path String
+        // configSplash.setPathSplash(4); //set path String
         configSplash.setOriginalHeight(400); //in relation to your svg (path) resource
         configSplash.setOriginalWidth(400); //in relation to your svg (path) resource
         configSplash.setAnimPathStrokeDrawingDuration(3000);
@@ -50,14 +50,14 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setTitleTextSize(30f); //float value
         configSplash.setAnimTitleDuration(3000);
         configSplash.setAnimTitleTechnique(Techniques.FlipInX);
-     //   configSplash.setTitleFont("fonts/myfont.ttf"); //provide string to your font located in assets/fonts/
+        //   configSplash.setTitleFont("fonts/myfont.ttf"); //provide string to your font located in assets/fonts/
 
     }
 
     @Override
     public void animationsFinished() {
 
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         //transit to another activity here
         //or do whatever you want
