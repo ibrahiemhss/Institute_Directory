@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Institute directory app</string>
+    <string name="titleNave">Title</string>
+    <string name="logo_institute">Logo of the Institute</string>
+    <string name="about_inst">About the Institute</string>
+    <string name="director_Institute">Director of the Institute</string>
+    <string name="chain_dir">Chain of Directors of the Institute</string>
+    <string name="about_app">About Application</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>
