@@ -1,65 +1,56 @@
 package com.directory.institute.institute_directory;
 
 import android.content.Intent;
-import android.provider.SyncStateContract;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.viksaa.sssplash.lib.activity.AwesomeSplash;
-import com.viksaa.sssplash.lib.cnst.Flags;
-import com.viksaa.sssplash.lib.model.ConfigSplash;
+import java.io.IOException;
 
-public class SplashActivity extends AwesomeSplash {
+import pl.droidsonroids.gif.AnimationListener;
+import pl.droidsonroids.gif.GifDrawable;
 
-    //DO NOT OVERRIDE onCreate()!
-    //if you need to start some services do it in initSplash()!
-
-
+public class SplashActivity extends AppCompatActivity {
+   private ImageView splash;
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
-    public void initSplash(ConfigSplash configSplash) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
 
-        /* you don't have to override every property */
+        final RotateAnimation rotate = new RotateAnimation(0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotate.setDuration(1000);
+        rotate.setInterpolator(new LinearInterpolator());
+        splash = (ImageView) findViewById(R.id.imgLogo);
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                splash.animate().rotationBy(360).withEndAction(this).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
+            }
+        };
 
-        //Customize Circular Reveal
-        configSplash.setBackgroundColor(R.color.colorPrimary); //any color you want form colors.xml
-        configSplash.setAnimCircularRevealDuration(2000); //int ms
-        configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
-        configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM); //or Flags.REVEAL_TOP
-
-        //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
-
-        //Customize Logo
-        configSplash.setLogoSplash(R.drawable.icon_dire); //or any other drawable
-        configSplash.setAnimLogoSplashDuration(2000); //int ms
-        configSplash.setAnimLogoSplashTechnique(Techniques.Bounce); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
-
-
-        //Customize Path
-        // configSplash.setPathSplash(4); //set path String
-        configSplash.setOriginalHeight(400); //in relation to your svg (path) resource
-        configSplash.setOriginalWidth(400); //in relation to your svg (path) resource
-        configSplash.setAnimPathStrokeDrawingDuration(3000);
-        configSplash.setPathSplashStrokeSize(1); //I advise value be <5
-        configSplash.setPathSplashStrokeColor(R.color.colorAccent); //any color you want form colors.xml
-        configSplash.setAnimPathFillingDuration(3000);
-        configSplash.setPathSplashFillColor(R.color.white); //path object filling color
+        splash.animate().rotationBy(360).withEndAction(runnable).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
 
 
-        //Customize Title
-        configSplash.setTitleSplash(getResources().getString(R.string.app_name));
-        configSplash.setTitleTextColor(R.color.white);
-        configSplash.setTitleTextSize(30f); //float value
-        configSplash.setAnimTitleDuration(3000);
-        configSplash.setAnimTitleTechnique(Techniques.FlipInX);
-        //   configSplash.setTitleFont("fonts/myfont.ttf"); //provide string to your font located in assets/fonts/
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                startActivity(intent);
+                handler.postDelayed(this, 120000); //now is every 2 minutes
+            }
+        }, 6000); //Every 120000 ms (2 minutes)    }
 
     }
 
-    @Override
-    public void animationsFinished() {
-
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        //transit to another activity here
-        //or do whatever you want
-    }
 }
