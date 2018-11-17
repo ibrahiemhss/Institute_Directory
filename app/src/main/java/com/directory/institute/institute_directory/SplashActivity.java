@@ -27,9 +27,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        final RotateAnimation rotate = new RotateAnimation(0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        rotate.setDuration(1000);
-        rotate.setInterpolator(new LinearInterpolator());
         splash = (ImageView) findViewById(R.id.imgLogo);
         Runnable runnable = new Runnable() {
             @Override
