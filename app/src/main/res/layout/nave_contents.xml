@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_below="@+id/lin1"
             android:orientation="vertical"
-            android:layout_margin="@dimen/nav_child_view_side_margin"
+            android:layout_margin="16dp"
             android:layout_height="wrap_content">
 
 
@@ -31,37 +31,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
-                android:text="@string/about_inst" />
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/About_the_Institute" />
 
             <View
                 android:id="@+id/v1"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@color/grey" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="end"
                 android:layout_below="@+id/v1"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
                 android:layout_alignParentEnd="true"
-                android:text="@string/director_Institute" />
+                android:text="@string/Chain_of_Directors" />
 
             <View
                 android:id="@+id/v2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+
                 android:background="@color/grey" />
 
 
@@ -70,18 +73,124 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/v2"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="end"
+                android:textStyle="bold"
                 android:layout_alignParentEnd="true"
-                android:text="@string/chain_dir" />
+                android:text="@string/Office_of_Scientific_Affairs" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:text="@string/Scientific_sections" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:layout_margin="4dp"
+                android:layout_gravity="center"
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:text="@string/Research_Department_Curriculum_Development" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:layout_margin="4dp"
+                android:layout_gravity="center"
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:text="@string/Technical_Certifications_Section" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:layout_margin="4dp"
+                android:layout_gravity="center"
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:text="@string/library" />
+
 
             <View
                 android:id="@+id/v2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/grey" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="end"
+                android:layout_alignParentEnd="true"
+                android:text="@string/General_Registrar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:text="@string/Study_and_Examinations" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:layout_margin="4dp"
+                android:layout_gravity="center"
+                android:layout_alignParentEnd="true"
+                android:textStyle="italic"
+                android:text="@string/Registration_and_Admission_Section" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:layout_margin="4dp"
+                android:layout_gravity="center"
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:text="@string/Graduates_Department" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v2"
+                android:textColor="@color/black"
+                android:layout_margin="4dp"
+                android:layout_gravity="center"
+                android:textStyle="italic"
+                android:layout_alignParentEnd="true"
+                android:text="@string/Department_of_Student_Affairs_Activity" />
+
+
+            <View
+                android:id="@+id/v2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@color/grey" />
 
 
@@ -89,34 +198,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
-                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="end"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:layout_alignParentEnd="true"
                 android:text="@string/about_app" />
 
 
-            <View
-                android:id="@+id/v3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
-                android:background="@color/grey" />
-
-            <TextView
-                android:layout_below="@+id/v3"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/nav_item_side_margin"
-                android:layout_marginBottom="@dimen/nav_item_side_margin"
-                android:layout_gravity="center"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/privacy_policy" />
 
 
         </LinearLayout>

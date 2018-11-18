@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
         setUpToolbar();
 
+
     }
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void setUpToolbar() {
@@ -58,4 +62,6 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+
 }
