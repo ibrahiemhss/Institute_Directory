@@ -22,12 +22,9 @@
         android:fitsSystemWindows="true"
         android:background="@drawable/nav_background"
         app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/navigation_menu"
         android:layout_marginBottom="@dimen/main_nav_bottom_margin">
 
-        <include
-            layout="@layout/nave_contents"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
     </android.support.design.widget.NavigationView>
 

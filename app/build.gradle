@@ -2,6 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
     defaultConfig {
         applicationId "com.directory.institute.institute_directory"
         minSdkVersion 15
@@ -42,5 +49,6 @@ dependencies {
 
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7'
 
+    implementation 'com.github.barteksc:android-pdf-viewer:2.0.3'
 
 }

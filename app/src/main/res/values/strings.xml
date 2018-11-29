@@ -10,7 +10,6 @@
     <string name="Chain_of_Directors">سلسلة مدراء المعهد</string>
 
 
-
     <string name="Office_of_Scientific_Affairs">مكتب الشئون العلميه</string>
     <string name="Scientific_sections">الاقسام العلميه</string>
     <string name="Research_Department_Curriculum_Development">قسم البحث وتطوير المناهج</string>
@@ -25,8 +24,6 @@
     <string name="Registration_and_Admission_Section">قسم التسجيل والقبول</string>
     <string name="Graduates_Department">قسم الخريجين</string>
     <string name="Department_of_Student_Affairs_Activity">قسم الشؤون الطلبة النشاط</string>
-
-
 
 
     <string name="about_app">عن التطبيق</string>
