@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/txt_General_Registrar2"
+        android:title="@string/General_Registrar">
+
+    <menu>
+            <item
+                android:id="@+id/txt_Study_and_Examinations"
+                android:title="@string/Study_and_Examinations"/>
+            <item
+                android:id="@+id/txt_Admission_Section"
+                android:title="@string/Registration_and_Admission_Section"
+                app:showAsAction="ifRoom|withText" />
+            <item
+                android:id="@+id/txt_Graduates"
+                android:title="@string/Graduates_Department"/>
+            <item
+                android:id="@+id/txt_Student_Affairs"
+                android:title="@string/Department_of_Student_Affairs_Activity"/>
+
+
+        </menu>
+    </item>
+
+
+
+</menu>

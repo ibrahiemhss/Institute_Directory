@@ -1,53 +1,61 @@
 <!--?xml version="1.0" encoding="utf-8"?-->
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <group >
-        <item android:id="@+id/txt_Institute"  android:title="@string/About_the_Institute"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+    <item android:id="@+id/txt_Institute"
+            android:title="@string/About_the_Institute"/>
         <item android:id="@+id/txt_Directors"  android:title="@string/Chain_of_Directors"/>
-        <item android:id="@+id/txt_Affairs" app:showAsAction="ifRoom"  android:title="@string/Office_of_Scientific_Affairs">
-            <menu>
 
 
+    <item android:id="@+id/txt_Affairs"
+            android:title="@string/Office_of_Scientific_Affairs"/>
+    <item
+        android:id="@+id/txt_Scientific"
+        android:title="@string/Scientific_sections"
+        app:showAsAction="ifRoom|withText"
+        android:visible="false"/>
+    <item
+        android:id="@+id/txt_Curriculum_Development"
+        android:title="@string/Research_Department_Curriculum_Development"
+        app:showAsAction="ifRoom|withText"
+        android:visible="false"/>
+    <item
+        android:id="@+id/txt_Certifications_Section"
+        android:title="@string/Technical_Certifications_Section"
+        app:showAsAction="ifRoom|withText"
+        android:visible="false"/>
+    <item
+        android:id="@+id/txt_library"
+        android:title="@string/library"
+        app:showAsAction="ifRoom|withText"
+        android:visible="false"/>
+        <item android:id="@+id/txt_General_Registrar"
+            android:title="@string/General_Registrar"/>
 
+    <item
+        android:id="@+id/txt_Study_and_Examinations"
+        android:title="@string/Study_and_Examinations"
+        app:showAsAction="ifRoom|withText"
+        android:visible="false"/>
+    <item
+        android:id="@+id/txt_Admission_Section"
+        android:title="@string/Registration_and_Admission_Section"
+        app:showAsAction="ifRoom|withText"
+        android:visible="false"/>
 
-                <item
-                    android:id="@+id/txt_Scientific"
-                    android:title="@string/Scientific_sections"/>
-                <item
-                    android:id="@+id/txt_Curriculum_Development"
-                    android:title="@string/Research_Department_Curriculum_Development"/>
-                <item
-                    android:id="@+id/txt_Certifications_Section"
-                    android:title="@string/Technical_Certifications_Section"/>
-                <item
-                    android:id="@+id/txt_library"
-                    android:title="@string/library"/>
+    <item
+        android:id="@+id/txt_Graduates"
+        android:title="@string/Graduates_Department"
+        app:showAsAction="ifRoom|withText"
+        android:visible="false"/>
 
+    <item
+        android:id="@+id/txt_Student_Affairs"
+        android:title="@string/Department_of_Student_Affairs_Activity"
 
-            </menu>
-        </item>
-
-        <item android:id="@+id/txt_General_Registrar"  app:showAsAction="ifRoom" android:title="@string/General_Registrar">
-            <menu>
-
-
-
-                <item
-                    android:id="@+id/txt_Study_and_Examinations"
-                    android:title="@string/Study_and_Examinations"/>
-                <item
-                    android:id="@+id/txt_Admission_Section"
-                    android:title="@string/Registration_and_Admission_Section"/>
-                <item
-                    android:id="@+id/txt_Graduates"
-                    android:title="@string/Graduates_Department"/>
-                <item
-                    android:id="@+id/txt_Student_Affairs"
-                    android:title="@string/Department_of_Student_Affairs_Activity"/>
-
-
-            </menu>
-        </item>
+        app:showAsAction="ifRoom|withText"
+        android:visible="false"/>
         <item android:id="@+id/txt_about_app"  android:title="@string/about_app"/>
-
     </group>
 </menu>

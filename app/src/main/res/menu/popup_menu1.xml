@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/txt_Affairs2"
+        android:title="@string/Office_of_Scientific_Affairs" >
+        <menu>
+            <item
+                android:id="@+id/txt_Scientific"
+                android:title="@string/Scientific_sections"/>
+            <item
+                android:id="@+id/txt_Curriculum_Development"
+                android:title="@string/Research_Department_Curriculum_Development"/>
+            <item
+                android:id="@+id/txt_Certifications_Section"
+                android:title="@string/Technical_Certifications_Section"/>
+            <item
+                android:id="@+id/txt_library"
+                android:title="@string/library"/>
+
+        </menu>
+    </item>
+
+
+</menu>

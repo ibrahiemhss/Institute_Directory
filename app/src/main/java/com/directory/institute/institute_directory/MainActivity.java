@@ -13,9 +13,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
+        Menu m=mNavigationView.getMenu();
         switch (item.getItemId()) {
             case R.id.txt_Institute:
                  intent = new Intent(MainActivity.this, DetailsActivity.class);
@@ -102,8 +104,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
 
+            case R.id.txt_Affairs:
+
+                if(isOpen1){
+                    mDrawerLayout.openDrawer(GravityCompat.START);
+
+                    m.findItem(R.id.txt_Scientific).setVisible(false);
+                    m.findItem(R.id.txt_Curriculum_Development).setVisible(false);
+                    m.findItem(R.id.txt_Certifications_Section).setVisible(false);
+                    m.findItem(R.id.txt_library).setVisible(false);
+
+                    isOpen1=false;
+
+                }else {
+                    mDrawerLayout.openDrawer(GravityCompat.START);
+
+                    m.findItem(R.id.txt_Scientific).setVisible(true);
+                    m.findItem(R.id.txt_Curriculum_Development).setVisible(true);
+                    m.findItem(R.id.txt_Certifications_Section).setVisible(true);
+                    m.findItem(R.id.txt_library).setVisible(true);
 
 
+                    isOpen1=true;
+
+                }
+
+                break;
             case R.id.txt_Directors:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
@@ -112,44 +138,73 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent.putExtras(extras);
                 startActivity(intent);
                 break;
-
-            case R.id.txt_Certifications_Section:
+            case R.id.txt_Scientific:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
 
                 extras.putInt(DetailsActivity.EXRA_PDF_VALUES,3);
                 intent.putExtras(extras);
-            //    startActivity(intent);
+                startActivity(intent);
                 break;
-
-            case R.id.txt_library:
+            case R.id.txt_Curriculum_Development:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
 
                 extras.putInt(DetailsActivity.EXRA_PDF_VALUES,4);
                 intent.putExtras(extras);
-             //   startActivity(intent);
+                startActivity(intent);
                 break;
 
-            case R.id.txt_General_Registrar:
+            case R.id.txt_Certifications_Section:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
 
                 extras.putInt(DetailsActivity.EXRA_PDF_VALUES,5);
                 intent.putExtras(extras);
-            //    startActivity(intent);
+                startActivity(intent);
                 break;
-
-            case R.id.txt_Study_and_Examinations:
+            case R.id.txt_library:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
 
                 extras.putInt(DetailsActivity.EXRA_PDF_VALUES,6);
                 intent.putExtras(extras);
-               // startActivity(intent);
+                startActivity(intent);
                 break;
 
-            case R.id.txt_Admission_Section:
+            case R.id.txt_General_Registrar:
+
+
+
+                if(isOpen1){
+                    mDrawerLayout.openDrawer(GravityCompat.START);
+
+                    m.findItem(R.id.txt_Study_and_Examinations).setVisible(false);
+                    m.findItem(R.id.txt_Admission_Section).setVisible(false);
+                    m.findItem(R.id.txt_Graduates).setVisible(false);
+                    m.findItem(R.id.txt_Student_Affairs).setVisible(false);
+
+                    isOpen2=false;
+                }else {
+                    mDrawerLayout.openDrawer(GravityCompat.START);
+
+                    m.findItem(R.id.txt_Study_and_Examinations).setVisible(true);
+                    m.findItem(R.id.txt_Admission_Section).setVisible(true);
+                    m.findItem(R.id.txt_Graduates).setVisible(true);
+                    m.findItem(R.id.txt_Student_Affairs).setVisible(true);
+
+
+                    isOpen2=true;
+
+                }
+
+                break;
+
+
+
+
+
+            case R.id.txt_Study_and_Examinations:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
 
@@ -158,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
 
-            case R.id.txt_Graduates:
+            case R.id.txt_Admission_Section:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
 
@@ -167,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
 
-            case R.id.txt_Student_Affairs:
+            case R.id.txt_Graduates:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
 
@@ -176,11 +231,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
 
-            case R.id.txt_about_app:
+            case R.id.txt_Student_Affairs:
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 extras = new Bundle();
 
                 extras.putInt(DetailsActivity.EXRA_PDF_VALUES,10);
+                intent.putExtras(extras);
+                startActivity(intent);
+                break;
+
+            case R.id.txt_about_app:
+                intent = new Intent(MainActivity.this, DetailsActivity.class);
+                extras = new Bundle();
+
+                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,11);
                 intent.putExtras(extras);
                 startActivity(intent);
 
@@ -194,7 +258,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
 
 }

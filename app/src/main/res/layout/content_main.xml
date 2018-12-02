@@ -15,8 +15,8 @@
         android:id="@+id/imgLogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/img_back1"
-        android:scaleType="fitStart"
+        android:src="@drawable/back_main"
+        android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:layout_centerInParent="true"
         />

@@ -43,13 +43,6 @@ public class SplashActivity extends AppCompatActivity {
                 splash.animate().rotationBy(360).withEndAction(this).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
             }
         };
-        Slide slide1 = (Slide) findViewById(R.id.slide);
-        slide1.setText(getResources().getString(R.string.app_name));
-
-        Slide slide2 = (Slide) findViewById(R.id.slide2);
-        slide2.setBackgroundColor(getResources().getColor(R.color.white));
-        slide2.setTextColor(getResources().getColor(R.color.black));
-        slide2.setText(getResources().getString(R.string.app_name));
 
         splash.animate().rotationBy(360).withEndAction(runnable).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
 
