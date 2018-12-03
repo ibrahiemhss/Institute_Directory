@@ -22,22 +22,78 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import pl.droidsonroids.gif.AnimationListener;
 import pl.droidsonroids.gif.GifDrawable;
 
-public class SplashActivity extends AppCompatActivity {
-   private CircleImageView splash;
-   private TextView mTextView;
+import static com.directory.institute.institute_directory.DetailsActivity.EXRA_PDF_VALUES;
 
+public class SplashActivity extends AppCompatActivity {
+
+    @SuppressWarnings("WeakerAccess")
+    @BindView(R.id.imgLogo)
+   protected CircleImageView splash;
+   private TextView mTextView;
+    public final static String EXRA_OPEN_VALUES = "extra_open";
+    public   Runnable runnable;
+    public  Handler handler;
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        ButterKnife.bind(this);
 
-        splash = findViewById(R.id.imgLogo);
-        Runnable runnable = new Runnable() {
+
+
+    }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+
+            if(extras.getInt(EXRA_OPEN_VALUES)==1) {
+                extras.putInt(EXRA_OPEN_VALUES,0);
+                finish();
+            }
+            else {
+                initAnimation();
+            }
+
+        }else {
+            initAnimation();
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (handler != null&&runnable!=null) {
+            handler.removeCallbacks(runnable);
+
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (handler != null&&runnable!=null) {
+            handler.removeCallbacks(runnable);
+
+        }
+
+    }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+
+    public void initAnimation(){
+        runnable = new Runnable() {
             @Override
             public void run() {
                 splash.animate().rotationBy(360).withEndAction(this).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
@@ -47,7 +103,7 @@ public class SplashActivity extends AppCompatActivity {
         splash.animate().rotationBy(360).withEndAction(runnable).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
 
 
-        final Handler handler = new Handler();
+        handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
 
@@ -62,5 +118,4 @@ public class SplashActivity extends AppCompatActivity {
 
 
     }
-
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <array name="Scientific_Affairs">
+            <item> @string/Office_of_Scientific_Affairs</item>
+            <item>@string/Scientific_sections</item>
+            <item>@string/Research_Department_Curriculum_Development</item>
+            <item>@string/Technical_Certifications_Section</item>
+            <item>@string/library</item>
+        </array>
+        <array name="General_Registrar">
+            <item>@string/General_Registrar</item>
+            <item>@string/Study_and_Examinations</item>
+            <item>@string/Registration_and_Admission_Section</item>
+            <item>@string/Graduates_Department</item>
+            <item>@string/Department_of_Student_Affairs_Activity</item>
+        </array>
+
+</resources>

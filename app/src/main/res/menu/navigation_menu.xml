@@ -13,9 +13,9 @@
     <item
         android:id="@+id/txt_Scientific"
         android:title="@string/Scientific_sections"
-        app:showAsAction="ifRoom|withText"
-        android:visible="false"/>
-    <item
+        app:actionLayout="@layout/spinner"/>
+
+        <item
         android:id="@+id/txt_Curriculum_Development"
         android:title="@string/Research_Department_Curriculum_Development"
         app:showAsAction="ifRoom|withText"

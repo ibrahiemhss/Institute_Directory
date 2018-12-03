@@ -30,10 +30,10 @@
 
             <TextView
                 android:id="@+id/txt_Institute"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_gravity="end"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:textSize="18sp"
@@ -50,14 +50,15 @@
 
             <TextView
                 android:id="@+id/txt_Directors"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:layout_gravity="center"
                 android:layout_below="@+id/v1"
-                android:textColor="@color/black"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
+                android:textSize="18sp"
                 android:layout_alignParentEnd="true"
                 android:text="@string/Chain_of_Directors" />
 
@@ -71,150 +72,33 @@
                 android:background="@color/grey" />
 
 
-            <TextView
-                android:id="@+id/txt_Affairs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+            <Spinner
+                android:id="@+id/sp_Affairs"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:prompt="@string/Office_of_Scientific_Affairs"
                 android:layout_gravity="end"
-                android:textStyle="bold"
-                android:layout_alignParentEnd="true"
-                android:text="@string/Office_of_Scientific_Affairs" />
-
-
-
-            <LinearLayout
-                android:id="@+id/line1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txt_Scientific"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/v2"
-                    android:textColor="@color/black"
-                    android:layout_margin="4dp"
-                    android:textStyle="italic"
-                    android:layout_gravity="center"
-                    android:layout_alignParentEnd="true"
-                    android:text="@string/Scientific_sections" />
-            <TextView
-                android:id="@+id/txt_Curriculum_Development"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:layout_margin="4dp"
-                android:layout_gravity="center"
-                android:textStyle="italic"
-                android:visibility="gone"
-                android:layout_alignParentEnd="true"
-                android:text="@string/Research_Department_Curriculum_Development" />
-            <TextView
-                android:id="@+id/txt_Certifications_Section"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:layout_margin="4dp"
-                android:layout_gravity="center"
-                android:textStyle="italic"
-                android:layout_alignParentEnd="true"
-                android:text="@string/Technical_Certifications_Section" />
-            <TextView
-                android:id="@+id/txt_library"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:layout_margin="4dp"
-                android:layout_gravity="center"
-                android:textStyle="italic"
-                android:layout_alignParentEnd="true"
-                android:text="@string/library" />
-
-            </LinearLayout>
+                android:textAlignment="textEnd"
+                android:gravity="center_vertical" />
             <View
                 android:id="@+id/v2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
+
                 android:background="@color/grey" />
 
-
-            <TextView
-                android:id="@+id/txt_General_Registrar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+            <Spinner
+                android:id="@+id/sp_General_Registrar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:prompt="@string/General_Registrar"
                 android:layout_gravity="end"
-                android:layout_alignParentEnd="true"
-                android:text="@string/General_Registrar" />
+                android:textAlignment="textEnd"
+                android:gravity="center_vertical" />
 
-            <LinearLayout
-                android:id="@+id/line2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                android:orientation="vertical">
-            <TextView
-                android:id="@+id/txt_Study_and_Examinations"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:textStyle="italic"
-                android:layout_alignParentEnd="true"
-                android:text="@string/Study_and_Examinations" />
-            <TextView
-                android:id="@+id/txt_Admission_Section"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:layout_margin="4dp"
-                android:layout_gravity="center"
-                android:layout_alignParentEnd="true"
-                android:textStyle="italic"
-                android:text="@string/Registration_and_Admission_Section" />
-            <TextView
-                android:id="@+id/txt_Graduates"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:layout_margin="4dp"
-                android:layout_gravity="center"
-                android:textStyle="italic"
-                android:layout_alignParentEnd="true"
-                android:text="@string/Graduates_Department" />
-            <TextView
-                android:id="@+id/txt_Student_Affairs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/v2"
-                android:textColor="@color/black"
-                android:layout_margin="4dp"
-                android:layout_gravity="center"
-                android:textStyle="italic"
-                android:layout_alignParentEnd="true"
-                android:text="@string/Department_of_Student_Affairs_Activity" />
-            </LinearLayout>
+
 
 
             <View
@@ -228,13 +112,13 @@
 
             <TextView
                 android:id="@+id/txt_about_app"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:layout_gravity="end"
-                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_alignParentEnd="true"
                 android:text="@string/about_app" />

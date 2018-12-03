@@ -11,14 +11,6 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/back_main"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:layout_centerInParent="true"
-        />
+
 </RelativeLayout>
 

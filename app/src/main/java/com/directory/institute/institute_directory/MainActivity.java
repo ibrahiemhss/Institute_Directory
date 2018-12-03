@@ -4,11 +4,14 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,17 +23,23 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity{
     private final static String TAG = MainActivity.class.getSimpleName();
+
+
 
     @SuppressWarnings("WeakerAccess")
     @BindView(R.id.drawer_layout)
@@ -44,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Boolean isOpen1=false,isOpen2=false;
     private Intent intent;
     private Bundle extras;
+    String[] res1,res2;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -54,6 +64,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         isOpen1=false;
         isOpen2=false;
         setUpToolbar();
+
+        res1=getResources().getStringArray(R.array.Scientific_Affairs);
+
+        res2=getResources().getStringArray(R.array.General_Registrar);
+
+        initNavigationDrawer(this,mNavigationView);
+
 
 
     }
@@ -71,8 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        mNavigationView.setNavigationItemSelectedListener(this);
-       // initNavigationDrawer(this,mNavigationView);
 
     }
 
@@ -85,179 +100,169 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
             onBackPressed();
 
-            finish();
+            intent = new Intent(MainActivity.this, SplashActivity.class);
+            extras = new Bundle();
+
+            extras.putInt(SplashActivity.EXRA_OPEN_VALUES,1);
+            intent.putExtras(extras);
+            startActivity(intent);
         }
     }
 
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Menu m=mNavigationView.getMenu();
-        switch (item.getItemId()) {
-            case R.id.txt_Institute:
-                 intent = new Intent(MainActivity.this, DetailsActivity.class);
-                 extras = new Bundle();
 
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,1);
-                intent.putExtras(extras);
-                startActivity(intent);
+    public void initNavigationDrawer(final Context context, final NavigationView navigationView) {
 
-                break;
+        Configuration configuration = context.getResources().getConfiguration();
+        final int screenWidthDp = configuration.screenWidthDp; //The current width of the available screen space, in dp units, corresponding to screen width resource qualifier.
 
-            case R.id.txt_Affairs:
+        Log.d(TAG, "allWidthOfScreen =" + String.valueOf(screenWidthDp) + "\n with after div =" + String.valueOf((int) (screenWidthDp * 0.83)));
 
-                if(isOpen1){
-                    mDrawerLayout.openDrawer(GravityCompat.START);
-
-                    m.findItem(R.id.txt_Scientific).setVisible(false);
-                    m.findItem(R.id.txt_Curriculum_Development).setVisible(false);
-                    m.findItem(R.id.txt_Certifications_Section).setVisible(false);
-                    m.findItem(R.id.txt_library).setVisible(false);
-
-                    isOpen1=false;
-
-                }else {
-                    mDrawerLayout.openDrawer(GravityCompat.START);
-
-                    m.findItem(R.id.txt_Scientific).setVisible(true);
-                    m.findItem(R.id.txt_Curriculum_Development).setVisible(true);
-                    m.findItem(R.id.txt_Certifications_Section).setVisible(true);
-                    m.findItem(R.id.txt_library).setVisible(true);
+        TextView txt_Institute = navigationView.findViewById(R.id.txt_Institute);
+        TextView txt_Directors = navigationView.findViewById(R.id.txt_Directors);
+        Spinner spinner_Affairs= navigationView.findViewById(R.id.sp_Affairs);
+        Spinner spinner_General_Registrar= navigationView.findViewById(R.id.sp_General_Registrar);
+        TextView txt_about_app= navigationView.findViewById(R.id.txt_about_app);
 
 
-                    isOpen1=true;
+        txt_Institute.setOnClickListener(view -> {
+            intent = new Intent(MainActivity.this, DetailsActivity.class);
+            extras = new Bundle();
 
-                }
+            extras.putInt(DetailsActivity.EXRA_PDF_VALUES,1);
+            intent.putExtras(extras);
+            startActivity(intent);
+        });
+        txt_Directors.setOnClickListener(view -> {
+            intent = new Intent(MainActivity.this, DetailsActivity.class);
+            extras = new Bundle();
 
-                break;
-            case R.id.txt_Directors:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,2);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-            case R.id.txt_Scientific:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,3);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-            case R.id.txt_Curriculum_Development:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,4);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-
-            case R.id.txt_Certifications_Section:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,5);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-            case R.id.txt_library:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,6);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-
-            case R.id.txt_General_Registrar:
+            extras.putInt(DetailsActivity.EXRA_PDF_VALUES,2);
+            intent.putExtras(extras);
+            startActivity(intent);
+        });
 
 
 
-                if(isOpen1){
-                    mDrawerLayout.openDrawer(GravityCompat.START);
+        txt_about_app.setOnClickListener(view -> {
+            intent = new Intent(MainActivity.this, DetailsActivity.class);
+            extras = new Bundle();
 
-                    m.findItem(R.id.txt_Study_and_Examinations).setVisible(false);
-                    m.findItem(R.id.txt_Admission_Section).setVisible(false);
-                    m.findItem(R.id.txt_Graduates).setVisible(false);
-                    m.findItem(R.id.txt_Student_Affairs).setVisible(false);
+            extras.putInt(DetailsActivity.EXRA_PDF_VALUES,11);
+            intent.putExtras(extras);
+            startActivity(intent);
 
-                    isOpen2=false;
-                }else {
-                    mDrawerLayout.openDrawer(GravityCompat.START);
-
-                    m.findItem(R.id.txt_Study_and_Examinations).setVisible(true);
-                    m.findItem(R.id.txt_Admission_Section).setVisible(true);
-                    m.findItem(R.id.txt_Graduates).setVisible(true);
-                    m.findItem(R.id.txt_Student_Affairs).setVisible(true);
+        });
 
 
-                    isOpen2=true;
+
+        spinner_Affairs.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_item,res1));
+        spinner_Affairs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                ((TextView) parent.getChildAt(0)).setTypeface(Typeface.DEFAULT_BOLD);
+
+                ((TextView) parent.getChildAt(0)).setTextSize(18);
+                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+
+
+                switch (position){
+                    case 1:
+
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,3);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                    case 2:
+
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,4);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,5);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,6);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
 
                 }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
-                break;
+        spinner_General_Registrar.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_item,res2));
+        spinner_General_Registrar.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                ((TextView) parent.getChildAt(0)).setTypeface(Typeface.DEFAULT_BOLD);
 
-
-
-
-            case R.id.txt_Study_and_Examinations:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,7);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-
-            case R.id.txt_Admission_Section:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,8);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-
-            case R.id.txt_Graduates:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,9);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-
-            case R.id.txt_Student_Affairs:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,10);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-
-            case R.id.txt_about_app:
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                extras = new Bundle();
-
-                extras.putInt(DetailsActivity.EXRA_PDF_VALUES,11);
-                intent.putExtras(extras);
-                startActivity(intent);
-
-                break;
+                ((TextView) parent.getChildAt(0)).setTextSize(18);
+                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
 
+                switch (position){
 
+                    case 1:
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
 
-        }
-        //close navigation drawer
-        mDrawerLayout.closeDrawer(GravityCompat.START);
-        return true;
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,7);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,8);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,9);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+
+                    case 4:
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,10);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
-
 
 }
