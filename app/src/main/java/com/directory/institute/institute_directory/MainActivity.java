@@ -98,14 +98,10 @@ public class MainActivity extends AppCompatActivity{
             mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-            onBackPressed();
+         //   SharedPrefManager.getInstance(this).setOpen(false);
 
-            intent = new Intent(MainActivity.this, SplashActivity.class);
-            extras = new Bundle();
+            finish();
 
-            extras.putInt(SplashActivity.EXRA_OPEN_VALUES,1);
-            intent.putExtras(extras);
-            startActivity(intent);
         }
     }
 
@@ -264,5 +260,6 @@ public class MainActivity extends AppCompatActivity{
             }
         });
     }
+
 
 }
