@@ -51,7 +51,6 @@ public class SplashActivity extends AppCompatActivity {
 
         isOpen=SharedPrefManager.getInstance(this).isOpen();
             if(isOpen) {
-                Toast.makeText(SplashActivity.this,"2",Toast.LENGTH_LONG).show();
                 SplashActivity.this.finish();
             }
             else {
@@ -100,7 +99,6 @@ public class SplashActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
  public void initAnimation(){
 
-        Toast.makeText(SplashActivity.this,"1",Toast.LENGTH_LONG).show();
         splash.animate().rotationBy(360).setDuration(3000).setInterpolator(new LinearInterpolator()).withEndAction(new Runnable() {
             @Override
             public void run() {
