@@ -1,8 +1,9 @@
 <resources>
+
     <style name="AppTheme.Launcher">
-    <item name="android:windowBackground">@drawable/launch_screen</item>
-    <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
-    <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+        <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
+        <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
     </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -34,7 +35,6 @@
         <item name="windowNoTitle">true</item>
         <!-- menu item height-->
     </style>
-
 
 
 </resources>

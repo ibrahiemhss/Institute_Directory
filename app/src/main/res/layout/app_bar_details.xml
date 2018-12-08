@@ -21,8 +21,7 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/viewer"
+    <com.github.barteksc.pdfviewer.PDFView android:id="@+id/viewer"
         xmlns:android="http://schemas.android.com/apk/res/android"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"

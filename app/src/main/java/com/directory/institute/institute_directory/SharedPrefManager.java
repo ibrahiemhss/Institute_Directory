@@ -13,6 +13,7 @@ public class SharedPrefManager {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
 
+
     public SharedPrefManager(Context context) {
         mCtx = context;
         pref = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);

@@ -35,12 +35,13 @@ public class SplashActivity extends AppCompatActivity {
 
     @SuppressWarnings("WeakerAccess")
     @BindView(R.id.imgLogo)
-   protected CircleImageView splash;
-   private TextView mTextView;
+    protected CircleImageView splash;
+    private TextView mTextView;
     public final static String EXRA_OPEN_VALUES = "extra_open";
-    public   Runnable runnable;
-    public  Handler handler;
-    private boolean isOpen=false;
+    public Runnable runnable;
+    public Handler handler;
+    private boolean isOpen = false;
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +50,12 @@ public class SplashActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        isOpen=SharedPrefManager.getInstance(this).isOpen();
-            if(isOpen) {
-                SplashActivity.this.finish();
-            }
-            else {
-                initAnimation();
-            }
+        isOpen = SharedPrefManager.getInstance(this).isOpen();
+        if (isOpen) {
+            SplashActivity.this.finish();
+        } else {
+            initAnimation();
+        }
 
 
     }
@@ -97,15 +97,15 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
- public void initAnimation(){
+    public void initAnimation() {
 
         splash.animate().rotationBy(360).setDuration(3000).setInterpolator(new LinearInterpolator()).withEndAction(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         });
-
 
 
     }

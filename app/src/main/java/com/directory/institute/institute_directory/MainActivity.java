@@ -36,9 +36,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     private final static String TAG = MainActivity.class.getSimpleName();
-
 
 
     @SuppressWarnings("WeakerAccess")
@@ -50,10 +49,10 @@ public class MainActivity extends AppCompatActivity{
     @SuppressWarnings("WeakerAccess")
     @BindView(R.id.nav_view)
     protected NavigationView mNavigationView;
-    private Boolean isOpen1=false,isOpen2=false;
+    private Boolean isOpen1 = false, isOpen2 = false;
     private Intent intent;
     private Bundle extras;
-    String[] res1,res2;
+    String[] res1, res2;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -61,20 +60,18 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        isOpen1=false;
-        isOpen2=false;
+        isOpen1 = false;
+        isOpen2 = false;
         setUpToolbar();
 
-        res1=getResources().getStringArray(R.array.Scientific_Affairs);
+        res1 = getResources().getStringArray(R.array.Scientific_Affairs);
 
-        res2=getResources().getStringArray(R.array.General_Registrar);
+        res2 = getResources().getStringArray(R.array.General_Registrar);
 
-        initNavigationDrawer(this,mNavigationView);
-
+        initNavigationDrawer(this, mNavigationView);
 
 
     }
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -98,13 +95,12 @@ public class MainActivity extends AppCompatActivity{
             mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-         //   SharedPrefManager.getInstance(this).setOpen(false);
+            //   SharedPrefManager.getInstance(this).setOpen(false);
 
             finish();
 
         }
     }
-
 
 
     public void initNavigationDrawer(final Context context, final NavigationView navigationView) {
@@ -116,16 +112,16 @@ public class MainActivity extends AppCompatActivity{
 
         TextView txt_Institute = navigationView.findViewById(R.id.txt_Institute);
         TextView txt_Directors = navigationView.findViewById(R.id.txt_Directors);
-        Spinner spinner_Affairs= navigationView.findViewById(R.id.sp_Affairs);
-        Spinner spinner_General_Registrar= navigationView.findViewById(R.id.sp_General_Registrar);
-        TextView txt_about_app= navigationView.findViewById(R.id.txt_about_app);
+        Spinner spinner_Affairs = navigationView.findViewById(R.id.sp_Affairs);
+        Spinner spinner_General_Registrar = navigationView.findViewById(R.id.sp_General_Registrar);
+        TextView txt_about_app = navigationView.findViewById(R.id.txt_about_app);
 
 
         txt_Institute.setOnClickListener(view -> {
             intent = new Intent(MainActivity.this, DetailsActivity.class);
             extras = new Bundle();
 
-            extras.putInt(DetailsActivity.EXRA_PDF_VALUES,1);
+            extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 1);
             intent.putExtras(extras);
             startActivity(intent);
         });
@@ -133,26 +129,24 @@ public class MainActivity extends AppCompatActivity{
             intent = new Intent(MainActivity.this, DetailsActivity.class);
             extras = new Bundle();
 
-            extras.putInt(DetailsActivity.EXRA_PDF_VALUES,2);
+            extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 2);
             intent.putExtras(extras);
             startActivity(intent);
         });
-
 
 
         txt_about_app.setOnClickListener(view -> {
             intent = new Intent(MainActivity.this, DetailsActivity.class);
             extras = new Bundle();
 
-            extras.putInt(DetailsActivity.EXRA_PDF_VALUES,11);
+            extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 11);
             intent.putExtras(extras);
             startActivity(intent);
 
         });
 
 
-
-        spinner_Affairs.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_item,res1));
+        spinner_Affairs.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, res1));
         spinner_Affairs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -163,13 +157,13 @@ public class MainActivity extends AppCompatActivity{
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
 
-                switch (position){
+                switch (position) {
                     case 1:
 
                         intent = new Intent(MainActivity.this, DetailsActivity.class);
                         extras = new Bundle();
 
-                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,3);
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 3);
                         intent.putExtras(extras);
                         startActivity(intent);
                         break;
@@ -178,7 +172,7 @@ public class MainActivity extends AppCompatActivity{
                         intent = new Intent(MainActivity.this, DetailsActivity.class);
                         extras = new Bundle();
 
-                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,4);
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 4);
                         intent.putExtras(extras);
                         startActivity(intent);
                         break;
@@ -186,7 +180,7 @@ public class MainActivity extends AppCompatActivity{
                         intent = new Intent(MainActivity.this, DetailsActivity.class);
                         extras = new Bundle();
 
-                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,5);
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 5);
                         intent.putExtras(extras);
                         startActivity(intent);
                         break;
@@ -194,19 +188,20 @@ public class MainActivity extends AppCompatActivity{
                         intent = new Intent(MainActivity.this, DetailsActivity.class);
                         extras = new Bundle();
 
-                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,6);
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 6);
                         intent.putExtras(extras);
                         startActivity(intent);
                         break;
 
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
 
-        spinner_General_Registrar.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_item,res2));
+        spinner_General_Registrar.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, res2));
         spinner_General_Registrar.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -217,13 +212,13 @@ public class MainActivity extends AppCompatActivity{
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
 
-                switch (position){
+                switch (position) {
 
                     case 1:
                         intent = new Intent(MainActivity.this, DetailsActivity.class);
                         extras = new Bundle();
 
-                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,7);
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 7);
                         intent.putExtras(extras);
                         startActivity(intent);
                         break;
@@ -231,7 +226,7 @@ public class MainActivity extends AppCompatActivity{
                         intent = new Intent(MainActivity.this, DetailsActivity.class);
                         extras = new Bundle();
 
-                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,8);
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 8);
                         intent.putExtras(extras);
                         startActivity(intent);
                         break;
@@ -239,7 +234,7 @@ public class MainActivity extends AppCompatActivity{
                         intent = new Intent(MainActivity.this, DetailsActivity.class);
                         extras = new Bundle();
 
-                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,9);
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 9);
                         intent.putExtras(extras);
                         startActivity(intent);
                         break;
@@ -248,13 +243,14 @@ public class MainActivity extends AppCompatActivity{
                         intent = new Intent(MainActivity.this, DetailsActivity.class);
                         extras = new Bundle();
 
-                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES,10);
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 10);
                         intent.putExtras(extras);
                         startActivity(intent);
                         break;
 
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }

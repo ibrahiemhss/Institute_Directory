@@ -83,7 +83,7 @@ public class DetailsActivity extends AppCompatActivity {
                     break;
 
                 case 7:
-                  mAsset_pdf = "studying_and_exam_department.pdf";
+                    mAsset_pdf = "studying_and_exam_department.pdf";
 
                     break;
 

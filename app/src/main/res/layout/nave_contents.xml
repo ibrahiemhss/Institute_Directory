@@ -80,6 +80,7 @@
                 android:layout_gravity="end"
                 android:textAlignment="textEnd"
                 android:gravity="center_vertical" />
+
             <View
                 android:id="@+id/v2"
                 android:layout_width="match_parent"
@@ -97,8 +98,6 @@
                 android:layout_gravity="end"
                 android:textAlignment="textEnd"
                 android:gravity="center_vertical" />
-
-
 
 
             <View
@@ -122,8 +121,6 @@
                 android:textStyle="bold"
                 android:layout_alignParentEnd="true"
                 android:text="@string/about_app" />
-
-
 
 
         </LinearLayout>
