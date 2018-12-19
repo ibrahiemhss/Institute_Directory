@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:text="@string/About_the_Institute" />
 
@@ -58,9 +58,28 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:layout_alignParentEnd="true"
                 android:text="@string/Chain_of_Directors" />
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+
+                android:background="@color/grey" />
+
+
+            <Spinner
+                android:id="@+id/sp_laws"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:prompt="@string/laws"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:gravity="center_vertical" />
 
             <View
                 android:id="@+id/v2"
@@ -74,7 +93,7 @@
 
             <Spinner
                 android:id="@+id/sp_Affairs"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:prompt="@string/Office_of_Scientific_Affairs"
                 android:layout_gravity="end"
@@ -92,7 +111,7 @@
 
             <Spinner
                 android:id="@+id/sp_General_Registrar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:prompt="@string/General_Registrar"
                 android:layout_gravity="end"
@@ -117,7 +136,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_gravity="center"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_alignParentEnd="true"
                 android:text="@string/about_app" />

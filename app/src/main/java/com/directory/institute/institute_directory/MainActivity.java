@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private Boolean isOpen1 = false, isOpen2 = false;
     private Intent intent;
     private Bundle extras;
-    String[] res1, res2;
+    private String[] res,res1, res2;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         isOpen1 = false;
         isOpen2 = false;
         setUpToolbar();
+
+        res = getResources().getStringArray(R.array.laws);
 
         res1 = getResources().getStringArray(R.array.Scientific_Affairs);
 
@@ -112,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView txt_Institute = navigationView.findViewById(R.id.txt_Institute);
         TextView txt_Directors = navigationView.findViewById(R.id.txt_Directors);
+        Spinner spinner_laws = navigationView.findViewById(R.id.sp_laws);
+
         Spinner spinner_Affairs = navigationView.findViewById(R.id.sp_Affairs);
         Spinner spinner_General_Registrar = navigationView.findViewById(R.id.sp_General_Registrar);
         TextView txt_about_app = navigationView.findViewById(R.id.txt_about_app);
@@ -144,7 +148,44 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
         });
+        spinner_laws.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, res));
+        spinner_laws.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                ((TextView) parent.getChildAt(0)).setTypeface(Typeface.DEFAULT_BOLD);
+
+                ((TextView) parent.getChildAt(0)).setTextSize(22);
+                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+
+
+                switch (position) {
+                    case 1:
+
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 13);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                    case 2:
+
+                        intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        extras = new Bundle();
+
+                        extras.putInt(DetailsActivity.EXRA_PDF_VALUES, 14);
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
         spinner_Affairs.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, res1));
         spinner_Affairs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -153,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
 
                 ((TextView) parent.getChildAt(0)).setTypeface(Typeface.DEFAULT_BOLD);
 
-                ((TextView) parent.getChildAt(0)).setTextSize(18);
+                ((TextView) parent.getChildAt(0)).setTextSize(22);
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
 
@@ -208,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
 
                 ((TextView) parent.getChildAt(0)).setTypeface(Typeface.DEFAULT_BOLD);
 
-                ((TextView) parent.getChildAt(0)).setTextSize(18);
+                ((TextView) parent.getChildAt(0)).setTextSize(22);
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
 

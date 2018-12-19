@@ -30,5 +30,8 @@
     <string name="privacy_policy">سياسة الخصوصيه</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="laws">المستندات والقوانين للطالب</string>
+    <string name="decuments">المستندات المطلوبه</string>
+    <string name="laws_student">اللوائح والقوانين للطالب</string>
 
 </resources>

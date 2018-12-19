@@ -83,17 +83,17 @@ public class DetailsActivity extends AppCompatActivity {
                     break;
 
                 case 7:
-                    mAsset_pdf = "studying_and_exam_department.pdf";
+                    mAsset_pdf = "studeing_exam.pdf";
 
                     break;
 
                 case 8:
-                    mAsset_pdf = "Registry_and_acceptancy_department.pdf";
+                    mAsset_pdf = "Registry_department.pdf";
 
                     break;
 
                 case 9:
-                    mAsset_pdf = "Graduated_depurtment.pdf";
+                    mAsset_pdf = "Graduated.pdf";
 
                     break;
 
@@ -104,6 +104,15 @@ public class DetailsActivity extends AppCompatActivity {
 
                 case 11:
                     mAsset_pdf = "around_application.pdf";
+
+                    break;
+
+                case 13:
+                    mAsset_pdf = "acceptancy.pdf";
+
+                    break;
+                case 14:
+                    mAsset_pdf = "registry_acceptancy.pdf";
 
                     break;
 

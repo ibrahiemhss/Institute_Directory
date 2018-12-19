@@ -15,4 +15,11 @@
         <item>@string/Department_of_Student_Affairs_Activity</item>
     </array>
 
+
+
+    <array name="laws">
+        <item>@string/laws</item>
+        <item>@string/decuments</item>
+        <item>@string/laws_student</item>
+    </array>
 </resources>
